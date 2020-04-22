@@ -1,6 +1,6 @@
 # [zmirror](https://github.com/aploium/zmirror) 一键部署脚本
 
-使用[zmirror](https://github.com/aploium/zmirror)快速部署镜像的脚本  
+使用[zmirror](https://github.com/aploium/zmirror)快速部署镜像的脚本 (已经过shigure的修改，加了一些网站cfg)
 
 如果无法部署成功, 可以尝试手动部署: [手动部署zmirror](https://github.com/aploium/zmirror/wiki/%E9%83%A8%E7%BD%B2%E6%94%AF%E6%8C%81HTTPS%E5%92%8CHTTP2.0%E7%9A%84%E9%95%9C%E5%83%8F)  
 或尝试[由yumin9822提供的脚本](https://github.com/aploium/zmirror-onekey/issues/18)  
@@ -30,7 +30,7 @@
 * **我没有SSL证书 (如果不懂, 请使用这个)**
     ```bash
     sudo apt-get -y update && sudo apt-get -y install python3 git
-    git clone https://github.com/aploium/zmirror-onekey.git --depth=1
+    git clone https://github.com/real-Shigure/zmirror-onekey.git --depth=1
     cd zmirror-onekey
     sudo python3 deploy.py
     ```
