@@ -25,10 +25,10 @@ except:
 
 __AUTHOR__ = 'Aploium <i@z.codes>'
 __VERSION__ = '0.12.1'
-__ZMIRROR_PROJECT_URL__ = 'https://github.com/aploium/zmirror/'
-__ZMIRROR_GIT_URL__ = 'https://github.com/aploium/zmirror.git'
-__ONKEY_PROJECT_URL__ = 'https://github.com/aploium/zmirror-onekey/'
-__ONKEY_PROJECT_URL_CONTENT__ = 'https://raw.githubusercontent.com/aploium/zmirror-onekey/master/'
+__ZMIRROR_PROJECT_URL__ = 'https://github.com/real-Shigure/zmirror/'
+__ZMIRROR_GIT_URL__ = 'https://github.com/real-Shigure/zmirror.git'
+__ONKEY_PROJECT_URL__ = 'https://github.com/real-Shigure/zmirror-onekey/'
+__ONKEY_PROJECT_URL_CONTENT__ = 'https://raw.githubusercontent.com/real-Shigure/zmirror-onekey/master/'
 REPORT_SUCCESS = "success"
 REPORT_ERROR = "error"
 __REPORT_URLS__ = {
