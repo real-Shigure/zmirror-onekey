@@ -396,6 +396,13 @@ mirrors_settings = {
         "certs": {},
         "installed_path": "",
     },
+    # 以下是自己加上的ao3
+    'ao3': {
+        'domain': None,
+        'cfg': [('more_configs/ao3.py', 'config.py'), ],
+        "certs": {},
+        "installed_path": "",
+    },
 }
 
 infoprint('OneKey deploy script for zmirror. version', __VERSION__)
@@ -585,9 +592,10 @@ try:
     {youtubePC}  4. youtube (PC ONLY)
     {youtubeMobile}  5. youtube (Mobile ONLY)
     {instagram}  6. instagram
+    {ao3}  7. ao3 (web)
       0. Go to next steps. (OK, I have selected all mirror(s) I want to deploy)
 
-    input 0-6: """.format(
+    input 0-7: """.format(
                 google='[SELECTED]' if 'google' in mirrors_to_deploy else (
                     "[INSTALLED]" if mirrors_settings["google"]["installed_path"] else ""),
 
@@ -605,6 +613,9 @@ try:
 
                 instagram='[SELECTED]' if 'instagram' in mirrors_to_deploy else (
                     "[INSTALLED]" if mirrors_settings["instagram"]["installed_path"] else ""),
+                
+                ao3='[SELECTED]' if 'ao3' in mirrors_to_deploy else (
+                    "[INSTALLED]" if mirrors_settings["ao3"]["installed_path"] else ""),
             )
 
         )
@@ -623,8 +634,8 @@ try:
 
         if _input == 0:
             break
-        if not (0 <= _input <= 6):
-            errprint('please input correct number (0-6), only select one mirror a time\n'
+        if not (0 <= _input <= 7):
+            errprint('please input correct number (0-7), only select one mirror a time\n'
                      '-------------------------\n\n')
             continue
 
@@ -636,6 +647,7 @@ try:
             4: "youtubePC",
             5: "youtubeMobile",
             6: "instagram",
+            7: "ao3",
         }[_input]
 
         # 镜像已经安装, 则不允许选择
