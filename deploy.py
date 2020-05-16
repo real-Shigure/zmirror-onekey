@@ -396,10 +396,18 @@ mirrors_settings = {
         "certs": {},
         "installed_path": "",
     },
-    # 以下是自己加上的ao3
+    # 以下是额外添加的的内容
+    
     'ao3': {
         'domain': None,
         'cfg': [('more_configs/ao3.py', 'config.py'), ],
+        "certs": {},
+        "installed_path": "",
+    },
+    
+    'pixiv': {
+        'domain': None,
+        'cfg': [('more_configs/pixiv.py', 'config.py'), ],
         "certs": {},
         "installed_path": "",
     },
@@ -593,9 +601,11 @@ try:
     {youtubeMobile}  5. youtube (Mobile ONLY)
     {instagram}  6. instagram
     {ao3}  7. ao3 (web)
+    {pixiv}  8. pixiv (web,test)
+    
       0. Go to next steps. (OK, I have selected all mirror(s) I want to deploy)
 
-    input 0-7: """.format(
+    input 0-8: """.format(
                 google='[SELECTED]' if 'google' in mirrors_to_deploy else (
                     "[INSTALLED]" if mirrors_settings["google"]["installed_path"] else ""),
 
@@ -616,6 +626,9 @@ try:
                 
                 ao3='[SELECTED]' if 'ao3' in mirrors_to_deploy else (
                     "[INSTALLED]" if mirrors_settings["ao3"]["installed_path"] else ""),
+                
+                pixiv='[SELECTED]' if 'pixiv' in mirrors_to_deploy else (
+                    "[INSTALLED]" if mirrors_settings["pixiv"]["installed_path"] else ""),
             )
 
         )
@@ -634,7 +647,7 @@ try:
 
         if _input == 0:
             break
-        if not (0 <= _input <= 7):
+        if not (0 <= _input <= 8):
             errprint('please input correct number (0-7), only select one mirror a time\n'
                      '-------------------------\n\n')
             continue
@@ -648,6 +661,7 @@ try:
             5: "youtubeMobile",
             6: "instagram",
             7: "ao3",
+            8: "pixiv",
         }[_input]
 
         # 镜像已经安装, 则不允许选择
