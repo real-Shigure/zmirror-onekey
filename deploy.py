@@ -411,6 +411,13 @@ mirrors_settings = {
         "certs": {},
         "installed_path": "",
     },
+    
+    'pornhub': {
+        'domain': None,
+        'cfg': [('more_configs/pornhub.py', 'config.py'), ],
+        "certs": {},
+        "installed_path": "",
+    },
 }
 
 infoprint('OneKey deploy script for zmirror. version', __VERSION__)
@@ -602,6 +609,7 @@ try:
     {instagram}  6. instagram
     {ao3}  7. ao3 (web)
     {pixiv}  8. pixiv (web,test)
+    {pornhub}  9. pornhub (web,test)
     
       0. Go to next steps. (OK, I have selected all mirror(s) I want to deploy)
 
@@ -629,6 +637,9 @@ try:
                 
                 pixiv='[SELECTED]' if 'pixiv' in mirrors_to_deploy else (
                     "[INSTALLED]" if mirrors_settings["pixiv"]["installed_path"] else ""),
+                
+                pornhub='[SELECTED]' if 'pornhub' in mirrors_to_deploy else (
+                    "[INSTALLED]" if mirrors_settings["pornhub"]["installed_path"] else ""),
             )
 
         )
@@ -647,7 +658,7 @@ try:
 
         if _input == 0:
             break
-        if not (0 <= _input <= 8):
+        if not (0 <= _input <= 9):
             errprint('please input correct number (0-7), only select one mirror a time\n'
                      '-------------------------\n\n')
             continue
@@ -662,6 +673,7 @@ try:
             6: "instagram",
             7: "ao3",
             8: "pixiv",
+            9: "pornhub",
         }[_input]
 
         # 镜像已经安装, 则不允许选择
